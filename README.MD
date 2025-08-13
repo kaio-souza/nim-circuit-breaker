@@ -22,14 +22,14 @@ A lightweight and performative library to implement the Circuit Breaker framewor
 import ../src/circuit_breaker, times,os
 
 proc onOpened() =
-  echo "[LOG] Circuito ABERTO"
+  echo "[LOG] OPENED"
 
 proc onClosed() =
-  echo "[LOG] Circuito FECHADO"
+  echo "[LOG] CLOSED"
 
 
 proc onHalfOpen() =
-  echo "[LOG] Circuito MEIO ABERTO"
+  echo "[LOG] HALF-OPEN"
 
 
 var cb = newCircuitBreaker(
@@ -44,9 +44,9 @@ for i in 0..10:
   let result = cb.call(
     fn = proc(): string =
       if i mod 3 == 0:
-        raise newException(IOError, "Erro simulado")
+        raise newException(IOError, "SimulatedError")
       else:
-        "Tudo certo"
+        "OK"
   )
   sleep(2000)
   echo result

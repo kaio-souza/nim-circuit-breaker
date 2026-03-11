@@ -54,7 +54,7 @@ for i in 0..10:
 ```
 ### 🚦 States
 
-- **Closed**: chats are normally allowed. If the limit of failures is reached, it is silent for Aberto.
+- **Closed**: chats are normally allowed. If the limit of failures is reached, it is silent for Open.
 - **Open**: all calls are blocked instantly.
 - **Half-Open**: allows a test call after or recoveryTimeout.
 
